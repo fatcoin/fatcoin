@@ -1,4 +1,4 @@
-GetBlockValue// Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
+uint256 hashGenesisBlock("0x71b2cc7ab846a245a77c0bcecf1ed1c6c046fecd5a643f07007556f223780c48");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Fatcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1071,7 +1071,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 500000; // Fatcoin: 5.79 days
+static const int64 nTargetTimespan = 50000; // Fatcoin: 5.79 days
 static const int64 nTargetSpacing = 15; // Fatcoin: 15 Seconds
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
@@ -2783,7 +2783,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(block.hashMerkleRoot == uint256("0x8434edac234b11bc869ba86d5dacd554f1171bbfa091524ed3701ac871cb3e9c"));
         block.print();
         assert(hash == hashGenesisBlock);
 
