@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+GetBlockValue// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -1065,14 +1065,14 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 50 * COIN;
 
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Fatcoin: 840k blocks in ~4 years
+    // Subsidy is cut in half every 1000000 blocks, which will occur approximately every 4 years
+    nSubsidy >>= (nHeight / 1000000); // Fatcoin: 1m blocks in ~4 years
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // Fatcoin: 3.5 days
-static const int64 nTargetSpacing = 2.5 * 60; // Fatcoin: 2.5 minutes
+static const int64 nTargetTimespan = 500000; // Fatcoin: 5.79 days
+static const int64 nTargetSpacing = 15; // Fatcoin: 15 Seconds
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
